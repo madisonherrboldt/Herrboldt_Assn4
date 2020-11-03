@@ -6,3 +6,14 @@ cut -f2 possible_voters.txt | grep -v Age > age.txt
 ##Next I created an if/then loop within a while loop. The while loop will loop through my file age.txt and then the if/then loop will echo yes or no if the age is 18 or older. The yes and no will then be appended to a new file elg.txt 
 while read line; do if [ "$line" -lt 18 ]; then echo "no"; else echo "yes"; fi; done < age.txt >> elg.txt
 
+##Now I want to add the header Eligible? to my elg.txt. I had to look up online to add the little - after cat in order to cat my echo command to a new file
+echo -e "Eligible?" | cat - elg.txt > eligibility.txt
+
+##I have the files I want so now I am going to paste them together to create a new file that is composed of the original possible_voters.txt and whether or not they are eligible to vote
+paste possible_voters.txt eligibility.txt > eligible_voters.txt
+
+##Remove extraneous files
+rm age.txt
+rm elg.txt
+rm eligibility.txt
+
