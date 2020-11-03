@@ -1,0 +1,8 @@
+#! /bin/bash
+
+##First I am going to make a file that just has the age column from possible_voters.txt. I use cut to take the column and then reverse grep to get rid of the header
+cut -f2 possible_voters.txt | grep -v Age > age.txt
+
+##Next I created an if/then loop within a while loop. The while loop will loop through my file age.txt and then the if/then loop will echo yes or no if the age is 18 or older. The yes and no will then be appended to a new file elg.txt 
+while read line; do if [ "$line" -lt 18 ]; then echo "no"; else echo "yes"; fi; done < age.txt >> elg.txt
+
