@@ -17,3 +17,6 @@ rm age.txt
 rm elg.txt
 rm eligibility.txt
 
+##print first ten lines of the two files to STDOUT
+head possible_voters.txt
+head eligible_voters.txt
