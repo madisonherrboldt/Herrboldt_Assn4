@@ -18,5 +18,9 @@ rm elg.txt
 rm eligibility.txt
 
 ##print first ten lines of the two files to STDOUT
-head possible_voters.txt
-head eligible_voters.txt
+head possible_voters.txt | column -t
+head eligible_voters.txt | column -t
+
+##Print how many eligible voters there are to the STDOUT
+grep yes eligible_voters.txt | echo -e "\nThere are $(wc -l) eligibile voters\n"
+
